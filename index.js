@@ -36,9 +36,9 @@ app.use("/uploads", express.static("uploads"));
 const port = 5000;
 connectDB();
 
-// app.get("/", (req, res) => {
-//   res.send("Everything is working fine...");
-// });
+app.get("/", (req, res) => {
+  res.send("Everything is working fine...");
+});
 
 app.post("/login", async (req, res) => {
   const { email, password } = req.body;
@@ -156,4 +156,4 @@ app.post("/logout", (req, res) => {
   res.send("User logged out successfully...");
 });
 
-app.listen(port, () => console.log(`Listehning on port ${port}`));
+app.listen(process.env.PORT || 5000)
