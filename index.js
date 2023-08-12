@@ -36,9 +36,9 @@ app.use("/uploads", express.static("uploads"));
 const port = 5000;
 connectDB();
 
-app.get("/", (req, res) => {
-  res.send("Everything is working fine...");
-});
+// app.get("/", (req, res) => {
+//   res.send("Everything is working fine...");
+// });
 
 app.post("/login", async (req, res) => {
   const { email, password } = req.body;
