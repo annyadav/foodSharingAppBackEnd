@@ -6,8 +6,8 @@ const cors = require("cors");
 const bcrypt = require("bcrypt");
 const multer = require("multer");
 const User = require("./model/userSchema");
-const FoodModal = require("./model/foodSchema")
-;
+const FoodModal = require("./model/foodSchema");
+const path = require('path')
 const corsOptions = {
   origin: "*",
   credentials: true,
@@ -29,8 +29,10 @@ app.use(
   })
 );
 // Serve uploaded images from the 'uploads' directory
-app.use("/uploads", express.static("uploads"));
 
+app.use('/', express.static(path.join(__dirname, 'dist')))
+
+app.use("/uploads", express.static("uploads"));
 const port = 5000;
 connectDB();
 
